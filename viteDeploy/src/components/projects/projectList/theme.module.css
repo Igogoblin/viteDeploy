@@ -1,0 +1,26 @@
+:root .themeComplete {
+  --form-control-color: green;
+}
+.main {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.basket {
+  padding-right: 25px;
+  background-image: url("../../../assets/free-icon-remove-folder-circular-button-first.png");
+  background-repeat: no-repeat;
+}
+.basket:hover {
+  background-image: url("../../../assets/free-icon-remove-folder-circular-button-second.png");
+}
+
+.addTheme {
+  background-color: beige;
+  border-radius: 3px;
+}
+
+h3 {
+  margin: 5px;
+}

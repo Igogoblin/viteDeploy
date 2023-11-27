@@ -1,0 +1,131 @@
+.main {
+  height: 100%;
+  margin-top: 20px;
+  background-color: beige;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 3px;
+}
+.project {
+  width: 50%;
+  border-right: 1px solid gray;
+  border-radius: 3px;
+}
+input,
+textarea {
+  border: none;
+  background-color: beige;
+}
+textarea {
+  resize: none;
+}
+
+ul {
+  list-style: none;
+  width: 80%;
+}
+li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.forDell {
+  margin-top: 5px;
+  padding-right: 5px;
+  width: 1.2em;
+  border: none;
+  cursor: pointer;
+  background-image: url("../../../assets/free-icon-delete-button-5676066.png");
+  background-repeat: no-repeat;
+  background-position: start;
+}
+
+.forDell:hover {
+  background-image: url("../../../assets/free-icon-delete-button-5680126.png");
+  transform: scale(1.2);
+}
+
+.forNew,
+.addProj {
+  border-radius: 3px;
+  background-color: beige;
+}
+
+@media screen and (max-width: 700px) {
+  ul {
+    padding-left: 5px;
+    width: 90%;
+  }
+  li {
+    display: flex;
+  }
+}
+
+input:checked + textarea {
+  text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+
+  margin-top: 4px;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.9em;
+  height: 0.9em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
+
+input[type="checkbox"]:disabled {
+  --form-control-color: var(--form-control-disabled);
+
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
+}
+
+textarea:hover {
+  background: #f3ce96;
+  animation: back 2s;
+}
+@keyframes back {
+  50% {
+    background: beige;
+  }
+  100% {
+    background: beige;
+  }
+}
