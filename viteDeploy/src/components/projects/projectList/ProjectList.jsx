@@ -8,6 +8,7 @@ import { addTheme } from "../../../store/projectSlice";
 
 function ProjectList() {
   const themes = useSelector((state) => state.project.themes);
+  // const project = useSelector((state)=>state.)
   const dispatch = useDispatch();
   const [text, setText] = useState("");
   const addThemeText = () => {
@@ -19,6 +20,7 @@ function ProjectList() {
       // });
     }
   };
+  console.log(themes);
   return (
     <div className={s.main}>
       <h3>project objectives</h3>
