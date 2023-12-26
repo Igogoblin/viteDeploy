@@ -8,10 +8,13 @@ import {
   toggleComplete,
 } from "../../../store/projectSlice";
 import s from "./project.module.css";
+// import ProgressBar from "react-bootstrap/ProgressBar";
 
 function ProjectItem({ id, text, completed }) {
   const [title, setTitle] = useState(text);
   const dispatch = useDispatch();
+
+  // const now = 60;
 
   function changeProjectText(e) {
     if (e.target.value.length === 0) {
@@ -32,20 +35,24 @@ function ProjectItem({ id, text, completed }) {
 
   return (
     <li onClick={() => dispatch(changeStatus({ id }))} className={s.proj}>
-      <input
-        type="checkbox"
-        checked={completed}
-        onChange={() => dispatch(toggleComplete({ id }))}
-      />
-      <textarea
-        onChange={(e) => changeProjectText(e)}
-        value={title}
-        placeholder="пустое поле"
-      ></textarea>
-      <div
-        onClick={() => dispatch(removeProject({ id }))}
-        className={s.forDell}
-      ></div>
+      <div className={s.projectItem}>
+        <input
+          type="checkbox"
+          checked={completed}
+          onChange={() => dispatch(toggleComplete({ id }))}
+        />
+        <textarea
+          onChange={(e) => changeProjectText(e)}
+          value={title}
+          placeholder="пустое поле"
+        ></textarea>
+        <div
+          onClick={() => dispatch(removeProject({ id }))}
+          className={s.forDell}
+        ></div>
+      </div>
+
+      {/* <ProgressBar now={now} label={`${now}%`} variant="warning" animated /> */}
     </li>
   );
 }
