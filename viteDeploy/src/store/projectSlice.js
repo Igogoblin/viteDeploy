@@ -10,6 +10,7 @@ const projectSlice = createSlice({
             id: 1,
             text: "example 1",
             completed: false,
+            percent: 0,
             theme: [
               {
                 id: 11,
@@ -33,6 +34,7 @@ const projectSlice = createSlice({
             id: 2,
             text: "For example two",
             completed: false,
+            percent: 0,
             theme: [],
             statusShow: false,
           },
@@ -40,6 +42,7 @@ const projectSlice = createSlice({
             id: 3,
             text: "Project third so-so",
             completed: false,
+            percent: 0,
             theme: [],
             statusShow: false,
           },
@@ -90,6 +93,24 @@ const projectSlice = createSlice({
       );
       localStorage.setItem("projItem", JSON.stringify(state.projects));
     },
+    changePercent(state) {
+      let quantity;
+      state.projects.map((proj) => {
+        console.log(proj);
+
+        if (proj.completed) {
+          proj.percent = 100;
+        } else {
+          quantity = proj.theme.reduce((acc, current) => {
+            if (current.completed) {
+              acc++;
+            }
+          }, 0);
+        }
+      });
+      console.log("quantity", quantity);
+      localStorage.setItem("projItem", JSON.stringify(state.projects));
+    },
     // ----------------------------------------------------------------------------------
     addTheme(state, action) {
       state.themes.push({
@@ -117,6 +138,8 @@ const projectSlice = createSlice({
         }
       });
       localStorage.setItem("projItem", JSON.stringify(state.projects));
+      changePercent();
+      //this is will be change project percent !!!!!!!!!!!!!!
     },
     removeTheme(state, action) {
       state.themes = state.themes.filter(
@@ -153,5 +176,6 @@ export const {
   toggleCompleteTheme,
   removeTheme,
   changeTheme,
+  changePercent,
 } = projectSlice.actions;
 export default projectSlice.reducer;

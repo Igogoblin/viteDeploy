@@ -34,13 +34,18 @@ function Projects() {
     }
   };
 
+  console.log(projects);
+
   return (
     <div className={s.main}>
       <div className={s.project}>
         <h2>Projects</h2>
         <ul>
           {projects.map((project) => (
-            <ProjectItem key={project.id} {...project} />
+            <>
+              <ProjectItem key={project.id} {...project} />
+              <hr></hr>
+            </>
           ))}
         </ul>
 

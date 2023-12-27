@@ -134,3 +134,18 @@ textarea:hover {
     background: beige;
   }
 }
+
+/* .progressBar {
+  border: 1px solid gray;
+  background-color: #f3ce96;
+}
+
+.progress-bar {
+  background-color: #f3ce96;
+} */
+
+.mainProgress {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
