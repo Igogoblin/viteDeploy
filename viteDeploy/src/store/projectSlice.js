@@ -56,6 +56,7 @@ const projectSlice = createSlice({
         id: new Date().toISOString(),
         text: action.payload.text,
         completed: false,
+        percent: 0,
         theme: [],
         statusShow: false,
       });
@@ -81,6 +82,7 @@ const projectSlice = createSlice({
           state.themes.length = 0;
           state.themes.push(...proj.theme);
           state.flag = action.payload.id;
+          console.log(proj.percent);
         } else {
           proj.statusShow = false;
         }
@@ -102,6 +104,7 @@ const projectSlice = createSlice({
           proj.percent = 100;
         } else {
           quantity = proj.theme.reduce((acc, current) => {
+            console.log("current", current);
             if (current.completed) {
               acc++;
             }

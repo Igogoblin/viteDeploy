@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { toast } from "react-toastify";
 import s from "./project.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import NewProjForm from "./NewProjForm";
