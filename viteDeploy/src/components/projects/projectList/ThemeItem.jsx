@@ -5,6 +5,7 @@ import {
   changeTheme,
   removeTheme,
   toggleCompleteTheme,
+  changePercent,
 } from "../../../store/projectSlice";
 import s from "./theme.module.css";
 
@@ -15,12 +16,17 @@ function ThemeItem({ id, text, completed }) {
     setTitle(e.target.value);
     dispatch(changeTheme(title));
   }
+  function forChangeThemeComplete() {
+    dispatch(toggleCompleteTheme({ id }));
+    dispatch(changePercent());
+  }
   return (
     <li>
       <input
         type="checkbox"
         checked={completed}
-        onChange={() => dispatch(toggleCompleteTheme({ id }))}
+        // onChange={() => dispatch(toggleCompleteTheme({ id }))}
+        onChange={(e) => forChangeThemeComplete(e)}
         className={s.themeComplete}
       ></input>
       <textarea onChange={(e) => changeThemeText(e)} value={title}></textarea>

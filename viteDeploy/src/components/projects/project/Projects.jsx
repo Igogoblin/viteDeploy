@@ -8,15 +8,37 @@ import { addProject } from "../../../store/projectSlice";
 import ProjectList from "../projectList/ProjectList";
 
 function Projects() {
+  const dispatch = useDispatch();
   const projects = useSelector((state) => state.project.projects);
   const showProj = useSelector((state) => state.showProject.showP);
+
   const [text, setText] = useState("");
   const [col, setCol] = useState("");
 
-  const dispatch = useDispatch();
+  const [proc, setProc] = useState(0); //for procent themes
+  function findProcent(ob) {
+    if (ob.theme.length == 0) {
+      return 0;
+    }
+    let allTheme = 0;
+    ob.theme.map((item) => {
+      item.completed ? allTheme++ : "";
+      console.log(item);
+    });
+    console.log("allTheme", allTheme);
+    console.log(ob);
+    if (allTheme === 0) {
+      return 0;
+    }
+    setProc((100 / ob.theme.length) * allTheme);
+    return proc;
+  }
   // const options = {
   //   style: ""
   // }
+
+  //console.log(showProj);
+  console.log(projects);
   const addTask = () => {
     if (text.length > 0) {
       dispatch(addProject({ text }));
@@ -42,7 +64,17 @@ function Projects() {
         <ul>
           {projects.map((project) => (
             <>
-              <ProjectItem key={project.id} {...project} />
+              <ProjectItem
+                key={project.id}
+                {...project}
+                // pr={findProcent(project)}
+                //{...proc}
+                // value={findProcent(project)}
+              />
+              {/* {findProcent(project)} */}
+              {console.log(project)}
+
+              {console.log(proc)}
               <hr></hr>
             </>
           ))}

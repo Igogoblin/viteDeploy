@@ -13,7 +13,10 @@ import s from "./project.module.css";
 
 function ProjectItem({ id, text, completed }) {
   const [title, setTitle] = useState(text);
-  // const [proc, setProc] = useState(0);
+  // const themes = useSelector((state) => state.project.themes);
+  // const showProject = useSelector((state) => state.project.projects);
+  // console.log(themes);
+  // console.log(showProject);
   const dispatch = useDispatch();
 
   // const now = 60;
@@ -34,6 +37,10 @@ function ProjectItem({ id, text, completed }) {
       }
     });
   });
+  // function findProcent(){
+  //   let rez = themes.reducer()
+  // }
+
   // function forProgress() {
   //   // let proc = 0;
   //   if (theme.length == 0) {
@@ -67,6 +74,9 @@ function ProjectItem({ id, text, completed }) {
           onClick={() => dispatch(removeProject({ id }))}
           className={s.forDell}
         ></div>
+      </div>
+      <div className={s.procMain}>
+        <div className={s.procItem}></div>
       </div>
       {/* <Progress {...proc} /> */}
       {/* <ProgressBar

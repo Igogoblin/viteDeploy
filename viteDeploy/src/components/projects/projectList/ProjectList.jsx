@@ -21,8 +21,8 @@ function ProjectList() {
       // });
     }
   };
-  console.log(themes);
-  console.log(showProject);
+  // console.log(themes);
+  // console.log(showProject);
   return (
     <div className={s.main}>
       <h3>

@@ -96,22 +96,26 @@ const projectSlice = createSlice({
       localStorage.setItem("projItem", JSON.stringify(state.projects));
     },
     changePercent(state) {
-      let quantity;
+      // let quantity;
+      console.log(state.projects);
       state.projects.map((proj) => {
-        console.log(proj);
-
-        if (proj.completed) {
-          proj.percent = 100;
-        } else {
-          quantity = proj.theme.reduce((acc, current) => {
-            console.log("current", current);
-            if (current.completed) {
-              acc++;
-            }
-          }, 0);
-        }
+        console.log(proj.statusShow);
       });
-      console.log("quantity", quantity);
+      // state.projects.map((proj) => {
+      //   console.log("101 proj", proj.theme);
+
+      //   if (proj.completed) {
+      //     proj.percent = 100;
+      //   } else {
+      //     quantity = proj.theme.reduce((acc, current) => {
+      //       console.log("current in reduce - ", current);
+      //       if (current.completed) {
+      //         acc++;
+      //       }
+      //     }, 0);
+      //   }
+      // });
+      // console.log("my parametr quantity  ", quantity);
       localStorage.setItem("projItem", JSON.stringify(state.projects));
     },
     // ----------------------------------------------------------------------------------
