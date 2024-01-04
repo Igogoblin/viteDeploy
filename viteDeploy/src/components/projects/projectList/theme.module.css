@@ -1,16 +1,26 @@
 :root .themeComplete {
   --form-control-color: green;
 }
+.themeComplete {
+  max-width: 10%;
+}
 .main {
   margin: 20px auto;
   display: flex;
   flex-direction: column;
 }
+.textTheme {
+  max-width: 75%;
+}
 
 .basket {
+  width: 15px;
+  height: 15px;
+  max-width: 10%;
   padding-right: 25px;
   background-image: url("../../../assets/free-icon-remove-folder-circular-button-first.png");
   background-repeat: no-repeat;
+  background-size: contain;
 }
 .basket:hover {
   background-image: url("../../../assets/free-icon-remove-folder-circular-button-second.png");
@@ -23,4 +33,7 @@
 
 h3 {
   margin: 5px;
+}
+.forThema {
+  display: flex;
 }

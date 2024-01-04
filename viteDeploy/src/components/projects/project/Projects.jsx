@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import s from "./project.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import NewProjForm from "./NewProjForm";
@@ -12,30 +12,47 @@ function Projects() {
   const projects = useSelector((state) => state.project.projects);
   const showProj = useSelector((state) => state.showProject.showP);
 
+  const themes = useSelector((state) => state.project.themes);
+  console.log(themes);
+
   const [text, setText] = useState("");
   const [col, setCol] = useState("");
 
   const [proc, setProc] = useState(0); //for procent themes
-  function findProcent(ob) {
-    if (ob.theme.length == 0) {
-      return 0;
-    }
-    let allTheme = 0;
-    ob.theme.map((item) => {
-      item.completed ? allTheme++ : "";
-      console.log(item);
-    });
-    console.log("allTheme", allTheme);
-    console.log(ob);
-    if (allTheme === 0) {
-      return 0;
-    }
-    setProc((100 / ob.theme.length) * allTheme);
-    return proc;
-  }
+  // function findProcent(ob) {
+  //   if (ob.theme.length == 0) {
+  //     return 0;
+  //   }
+  //   let allTheme = 0;
+  //   ob.theme.map((item) => {
+  //     item.completed ? allTheme++ : "";
+  //     console.log(item);
+  //   });
+  //   console.log("allTheme", allTheme);
+  //   console.log(ob);
+  //   if (allTheme === 0) {
+  //     return 0;
+  //   }
+  //   setProc((100 / ob.theme.length) * allTheme);
+  //   return proc;
+  // }
   // const options = {
   //   style: ""
   // }
+
+  useEffect(() => {
+    let rez = 0;
+    themes.forEach((element) => {
+      console.log(element);
+      console.log(themes.length);
+      if (element.completed) {
+        rez++;
+      }
+      console.log(rez);
+    });
+    console.log("use effect");
+    setProc((100 / themes.length) * rez);
+  }, [proc]);
 
   //console.log(showProj);
   console.log(projects);
@@ -73,7 +90,9 @@ function Projects() {
               />
               {/* {findProcent(project)} */}
               {console.log(project)}
-
+              <div className={s.procMain}>
+                <div className={s.procItem} style={{ width: proc }}></div>
+              </div>
               {console.log(proc)}
               <hr></hr>
             </>

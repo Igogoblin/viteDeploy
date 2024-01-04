@@ -158,6 +158,6 @@ textarea:hover {
   border: 1px solid rgb(75, 75, 48);
 }
 .procItem {
-  width: 30%;
+  /* width: 30%; */
   background-color: #f3ce96;
 }

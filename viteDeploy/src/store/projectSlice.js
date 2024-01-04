@@ -95,11 +95,32 @@ const projectSlice = createSlice({
       );
       localStorage.setItem("projItem", JSON.stringify(state.projects));
     },
-    changePercent(state) {
-      // let quantity;
+    changePercent(state, action) {
+      let quantity;
       console.log(state.projects);
+      console.log("this is we see, if toggle theme ! ");
       state.projects.map((proj) => {
         console.log(proj.statusShow);
+      });
+
+      const togglePercent = state.themes.find(
+        (theme) => theme.id === action.payload.id
+      );
+      console.log(togglePercent);
+      // toggleTheme.completed = !toggleTheme.completed;
+      let rez = 0;
+      state.projects.forEach((proj) => {
+        if (proj.id === state.flag) {
+          // proj.theme.length = 0;
+          // proj.theme.push(...state.themes);
+          proj.theme.forEach((theme) => {
+            if (theme.completed == true) {
+              rez++;
+            }
+          });
+          proj.percent = (100 / proj.theme.length) * rez;
+        }
+        rez = 0;
       });
       // state.projects.map((proj) => {
       //   console.log("101 proj", proj.theme);
@@ -115,7 +136,7 @@ const projectSlice = createSlice({
       //     }, 0);
       //   }
       // });
-      // console.log("my parametr quantity  ", quantity);
+      console.log("my parametr quantity  ", quantity);
       localStorage.setItem("projItem", JSON.stringify(state.projects));
     },
     // ----------------------------------------------------------------------------------
@@ -137,6 +158,7 @@ const projectSlice = createSlice({
       const toggleTheme = state.themes.find(
         (theme) => theme.id === action.payload.id
       );
+
       toggleTheme.completed = !toggleTheme.completed;
       state.projects.forEach((proj) => {
         if (proj.id === state.flag) {
@@ -145,8 +167,6 @@ const projectSlice = createSlice({
         }
       });
       localStorage.setItem("projItem", JSON.stringify(state.projects));
-      changePercent();
-      //this is will be change project percent !!!!!!!!!!!!!!
     },
     removeTheme(state, action) {
       state.themes = state.themes.filter(

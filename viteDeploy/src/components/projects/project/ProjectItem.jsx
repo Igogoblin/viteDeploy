@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   changeProject,
   changeStatus,
@@ -13,10 +13,11 @@ import s from "./project.module.css";
 
 function ProjectItem({ id, text, completed }) {
   const [title, setTitle] = useState(text);
-  // const themes = useSelector((state) => state.project.themes);
-  // const showProject = useSelector((state) => state.project.projects);
-  // console.log(themes);
-  // console.log(showProject);
+
+  const themes = useSelector((state) => state.project.themes);
+  const showProject = useSelector((state) => state.project.projects);
+  console.log(themes);
+  console.log(showProject);
   const dispatch = useDispatch();
 
   // const now = 60;
@@ -37,26 +38,7 @@ function ProjectItem({ id, text, completed }) {
       }
     });
   });
-  // function findProcent(){
-  //   let rez = themes.reducer()
-  // }
 
-  // function forProgress() {
-  //   // let proc = 0;
-  //   if (theme.length == 0) {
-  //     return setProc(0);
-  //   }
-  //   let count = 0;
-  //   for (let i = 0; i < theme.length; i++) {
-  //     if (theme[i].completed) {
-  //       count++;
-  //     }
-  //   }
-  //   setProc((100 / theme.length) * count);
-  //   // return proc;
-  // }
-  // console.log(theme);
-  // console.log(forProgress());
   return (
     <li onClick={() => dispatch(changeStatus({ id }))} className={s.proj}>
       <div className={s.projectItem}>
@@ -75,18 +57,9 @@ function ProjectItem({ id, text, completed }) {
           className={s.forDell}
         ></div>
       </div>
-      <div className={s.procMain}>
+      {/* <div className={s.procMain}>
         <div className={s.procItem}></div>
-      </div>
-      {/* <Progress {...proc} /> */}
-      {/* <ProgressBar
-        now={now}
-        label={`${now}%`}
-        variant="info"
-        style={{ border: "1px solid gray" }}
-
-        // className={s.progressBar}
-      /> */}
+      </div> */}
     </li>
   );
 }

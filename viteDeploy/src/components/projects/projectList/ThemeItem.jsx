@@ -18,10 +18,10 @@ function ThemeItem({ id, text, completed }) {
   }
   function forChangeThemeComplete() {
     dispatch(toggleCompleteTheme({ id }));
-    dispatch(changePercent());
+    dispatch(changePercent({ id }));
   }
   return (
-    <li>
+    <li className={s.forThema}>
       <input
         type="checkbox"
         checked={completed}
@@ -29,7 +29,11 @@ function ThemeItem({ id, text, completed }) {
         onChange={(e) => forChangeThemeComplete(e)}
         className={s.themeComplete}
       ></input>
-      <textarea onChange={(e) => changeThemeText(e)} value={title}></textarea>
+      <textarea
+        onChange={(e) => changeThemeText(e)}
+        value={title}
+        className={s.textTheme}
+      ></textarea>
       <div
         onClick={() => dispatch(removeTheme({ id }))}
         className={s.basket}
