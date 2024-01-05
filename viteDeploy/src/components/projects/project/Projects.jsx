@@ -12,14 +12,9 @@ function Projects() {
   const projects = useSelector((state) => state.project.projects);
   const showProj = useSelector((state) => state.showProject.showP);
 
-  // const themes = useSelector((state) => state.project.themes);
-  // console.log(themes);
-
   const [text, setText] = useState("");
   const [col, setCol] = useState("");
 
-  //console.log(showProj);
-  console.log(projects);
   const addTask = () => {
     if (text.length > 0) {
       dispatch(addProject({ text }));
@@ -45,22 +40,15 @@ function Projects() {
         <ul>
           {projects.map((project) => (
             <>
-              <ProjectItem
-                key={project.id}
-                {...project}
-                // pr={findProcent(project)}
-                //{...proc}
-                // value={findProcent(project)}
-              />
-              {/* {findProcent(project)} */}
-              {console.log(project)}
+              <ProjectItem key={project.id} {...project} />
               <div className={s.procMain}>
                 <div
                   className={s.procItem}
-                  style={{ width: project.percent }}
-                ></div>
+                  style={{ width: `${project.percent}%` }}
+                >
+                  <div className={s.forPercent}>{project.percent}%</div>
+                </div>
               </div>
-              {console.log(project.percent)}
               <hr></hr>
             </>
           ))}

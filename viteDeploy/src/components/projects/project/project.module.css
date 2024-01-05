@@ -152,7 +152,7 @@ textarea:hover {
 
 .procMain {
   width: 100%;
-  height: 5px;
+  height: 15px;
   display: flex;
   justify-content: start;
   border: 1px solid rgb(75, 75, 48);
@@ -161,4 +161,9 @@ textarea:hover {
   max-width: 100%;
   /* width: 30%; */
   background-color: #f3ce96;
+  overflow: hidden;
+  white-space: normal;
+}
+.forPercent {
+  font-size: 10px;
 }
