@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   changeProject,
   changeStatus,
@@ -8,19 +8,11 @@ import {
   toggleComplete,
 } from "../../../store/projectSlice";
 import s from "./project.module.css";
-// import ProgressBar from "react-bootstrap/ProgressBar";
-//import Progress from "./Progress";
 
 function ProjectItem({ id, text, completed }) {
   const [title, setTitle] = useState(text);
 
-  const themes = useSelector((state) => state.project.themes);
-  const showProject = useSelector((state) => state.project.projects);
-  console.log(themes);
-  console.log(showProject);
   const dispatch = useDispatch();
-
-  // const now = 60;
 
   function changeProjectText(e) {
     if (e.target.value.length === 0) {
@@ -57,9 +49,6 @@ function ProjectItem({ id, text, completed }) {
           className={s.forDell}
         ></div>
       </div>
-      {/* <div className={s.procMain}>
-        <div className={s.procItem}></div>
-      </div> */}
     </li>
   );
 }

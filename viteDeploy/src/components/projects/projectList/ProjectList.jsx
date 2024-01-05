@@ -28,7 +28,7 @@ function ProjectList() {
       <h3>
         {showProject.map((proj) => (proj.statusShow === true ? proj.text : ""))}
       </h3>
-      <ul>
+      <ul className={s.themeArea}>
         {themes.length > 0 ? (
           themes.map((theme) => (
             <ThemeItem key={theme.id} {...theme}></ThemeItem>

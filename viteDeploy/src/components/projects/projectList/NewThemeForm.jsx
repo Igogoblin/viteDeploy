@@ -8,12 +8,13 @@ function NewThemeForm({ text, handleInput, handleSubmit }) {
     }
   };
   return (
-    <label>
+    <label className={s.containerInputTheme}>
       <input
         placeholder="new theme"
         value={text}
         onChange={(e) => handleInput(e.target.value)}
         onKeyDown={handleKeyPress}
+        className={s.inputNewTheme}
       ></input>
       <button onClick={handleSubmit} className={s.addTheme}>
         Add theme

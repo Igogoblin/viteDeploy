@@ -1,6 +1,10 @@
 :root .themeComplete {
   --form-control-color: green;
 }
+.themeArea {
+  padding-left: 0;
+  margin-left: 5px;
+}
 .themeComplete {
   max-width: 10%;
 }
@@ -10,14 +14,14 @@
   flex-direction: column;
 }
 .textTheme {
-  max-width: 75%;
+  max-width: 70%;
 }
 
 .basket {
   width: 15px;
   height: 15px;
   max-width: 10%;
-  padding-right: 25px;
+  /* padding-right: 25px; */
   background-image: url("../../../assets/free-icon-remove-folder-circular-button-first.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -36,4 +40,11 @@ h3 {
 }
 .forThema {
   display: flex;
+}
+.containerInputTheme {
+  overflow: hidden;
+  white-space: normal;
+}
+.inputNewTheme {
+  width: 90%;
 }
