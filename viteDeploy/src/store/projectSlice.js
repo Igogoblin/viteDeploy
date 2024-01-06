@@ -95,24 +95,10 @@ const projectSlice = createSlice({
       );
       localStorage.setItem("projItem", JSON.stringify(state.projects));
     },
-    changePercent(state, action) {
-      let quantity;
-      console.log(state.projects);
-      console.log("this is we see, if toggle theme ! ");
-      state.projects.map((proj) => {
-        console.log(proj.statusShow);
-      });
-
-      const togglePercent = state.themes.find(
-        (theme) => theme.id === action.payload.id
-      );
-      console.log(togglePercent);
-      // toggleTheme.completed = !toggleTheme.completed;
+    changePercent(state) {
       let rez = 0;
       state.projects.forEach((proj) => {
         if (proj.id === state.flag) {
-          // proj.theme.length = 0;
-          // proj.theme.push(...state.themes);
           proj.theme.forEach((theme) => {
             if (theme.completed == true) {
               rez++;
@@ -122,21 +108,7 @@ const projectSlice = createSlice({
         }
         rez = 0;
       });
-      // state.projects.map((proj) => {
-      //   console.log("101 proj", proj.theme);
 
-      //   if (proj.completed) {
-      //     proj.percent = 100;
-      //   } else {
-      //     quantity = proj.theme.reduce((acc, current) => {
-      //       console.log("current in reduce - ", current);
-      //       if (current.completed) {
-      //         acc++;
-      //       }
-      //     }, 0);
-      //   }
-      // });
-      console.log("my parametr quantity  ", quantity);
       localStorage.setItem("projItem", JSON.stringify(state.projects));
     },
     // ----------------------------------------------------------------------------------

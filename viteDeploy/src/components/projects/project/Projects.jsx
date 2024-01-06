@@ -31,7 +31,7 @@ function Projects() {
     }
   };
 
-  console.log(projects);
+  // console.log(projects);
 
   return (
     <div className={s.main}>
