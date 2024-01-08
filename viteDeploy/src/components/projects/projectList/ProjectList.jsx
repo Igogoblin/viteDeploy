@@ -18,19 +18,20 @@ function ProjectList() {
     }
   };
   console.log(themes);
-  // console.log(showProject);
+  console.log(showProject);
   return (
     <div className={s.main}>
       <h3>
         {showProject.map((proj) => (proj.statusShow === true ? proj.text : ""))}
       </h3>
       <ul className={s.themeArea}>
+        {}
         {themes.length > 0 ? (
           themes.map((theme) => (
             <ThemeItem key={theme.id} {...theme}></ThemeItem>
           ))
         ) : (
-          <div>epmty themas</div>
+          <div>empty themes</div>
         )}
       </ul>
       <div>

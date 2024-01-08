@@ -21,7 +21,7 @@ function ThemeItem({ id, text, completed }) {
     dispatch(changePercent({ id }));
   }
   return (
-    <li className={s.forThema}>
+    <li className={s.forTheme}>
       <input
         type="checkbox"
         checked={completed}

@@ -5,22 +5,22 @@
   padding-left: 0;
   margin-left: 5px;
 }
-.themeComplete {
+/* .themeComplete {
   max-width: 10%;
-}
+} */
 .main {
   margin: 20px auto;
   display: flex;
   flex-direction: column;
 }
-.textTheme {
+/* .textTheme {
   max-width: 70%;
-}
+} */
 
 .basket {
   width: 15px;
   height: 15px;
-  max-width: 10%;
+  /* max-width: 10%; */
   /* padding-right: 25px; */
   background-image: url("../../../assets/free-icon-remove-folder-circular-button-first.png");
   background-repeat: no-repeat;
@@ -38,8 +38,9 @@
 h3 {
   margin: 5px;
 }
-.forThema {
+.forTheme {
   display: flex;
+  flex-direction: row;
 }
 .containerInputTheme {
   overflow: hidden;
@@ -47,4 +48,13 @@ h3 {
 }
 .inputNewTheme {
   width: 90%;
+}
+@media screen and (max-width: 500px) {
+  .forTheme {
+    flex-direction: column;
+  }
+  .inputNewTheme,
+  textarea {
+    width: 100px;
+  }
 }
