@@ -104,7 +104,7 @@ const projectSlice = createSlice({
               rez++;
             }
           });
-          proj.percent = (100 / proj.theme.length) * rez;
+          proj.percent = ((100 / proj.theme.length) * rez).toFixed(2);
         }
         rez = 0;
       });
