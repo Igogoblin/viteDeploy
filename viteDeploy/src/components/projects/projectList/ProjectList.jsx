@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ThemeItem from "./ThemeItem";
 import s from "./theme.module.css";
 import NewThemeForm from "./NewThemeForm";
-import { addTheme } from "../../../store/projectSlice";
+import { addTheme, changePercent } from "../../../store/projectSlice";
 
 function ProjectList() {
   const themes = useSelector((state) => state.project.themes);
@@ -14,6 +14,7 @@ function ProjectList() {
   const addThemeText = () => {
     if (text.length > 0) {
       dispatch(addTheme({ text }));
+      dispatch(changePercent());
       setText("");
     }
   };
