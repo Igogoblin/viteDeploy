@@ -20,6 +20,10 @@ function ThemeItem({ id, text, completed }) {
     dispatch(toggleCompleteTheme({ id }));
     dispatch(changePercent({ id }));
   }
+  function forDeleteTheme() {
+    dispatch(removeTheme({ id }));
+    dispatch(changePercent());
+  }
   return (
     <li className={s.forTheme}>
       <input
@@ -35,7 +39,8 @@ function ThemeItem({ id, text, completed }) {
         className={s.textTheme}
       ></textarea>
       <div
-        onClick={() => dispatch(removeTheme({ id }))}
+        // onClick={() => dispatch(removeTheme({ id }))}
+        onClick={forDeleteTheme}
         className={s.basket}
       ></div>
     </li>
