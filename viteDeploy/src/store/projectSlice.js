@@ -47,25 +47,11 @@ const projectSlice = createSlice({
             statusShow: false,
           },
         ],
-    // projects: localStorage.getItem("projItem")
-    // ? JSON.parse(localStorage.getItem("projItem")).find((rez)=>{
-    // rez.statusShow)
-    // }
-    //  ourTheme = JSON.parse(localStorage.getItem("projItem")).find(
-    //   (el) => el.statusShow
-    // ),
-    // themes: [
-    //   JSON.parse(localStorage.getItem("projItem")).find((el) => el.statusShow)
-    //     .theme,
-    // ],
-
-    //   themes: [localStorage.getItem("projItem")
-    // ?{themes: [
-    //     JSON.parse(localStorage.getItem("projItem")).find((el) => el.statusShow)
-    //       .theme
-    //   ],}
-    //   :   themes:[],
-    themes: [],
+    themes: [
+      ...JSON.parse(localStorage.getItem("projItem")).find(
+        (el) => el.statusShow == true
+      ).theme,
+    ],
     flag: 1,
   },
   reducers: {
