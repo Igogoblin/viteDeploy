@@ -47,6 +47,24 @@ const projectSlice = createSlice({
             statusShow: false,
           },
         ],
+    // projects: localStorage.getItem("projItem")
+    // ? JSON.parse(localStorage.getItem("projItem")).find((rez)=>{
+    // rez.statusShow)
+    // }
+    //  ourTheme = JSON.parse(localStorage.getItem("projItem")).find(
+    //   (el) => el.statusShow
+    // ),
+    // themes: [
+    //   JSON.parse(localStorage.getItem("projItem")).find((el) => el.statusShow)
+    //     .theme,
+    // ],
+
+    //   themes: [localStorage.getItem("projItem")
+    // ?{themes: [
+    //     JSON.parse(localStorage.getItem("projItem")).find((el) => el.statusShow)
+    //       .theme
+    //   ],}
+    //   :   themes:[],
     themes: [],
     flag: 1,
   },
@@ -138,7 +156,15 @@ const projectSlice = createSlice({
           proj.theme.push(...state.themes);
         }
       });
+
       localStorage.setItem("projItem", JSON.stringify(state.projects));
+      console.log(JSON.parse(localStorage.getItem("projItem")));
+      // let ourTheme = JSON.parse(localStorage.getItem("projItem")).find(
+      //   (el) => el.statusShow
+      // );
+      // console.log(ourTheme.theme);
+      let ourTheme = state.projects.find((el) => el.statusShow);
+      console.log(ourTheme.theme);
     },
     removeTheme(state, action) {
       state.themes = state.themes.filter(

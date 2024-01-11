@@ -24,9 +24,20 @@ function ProjectList() {
     <div className={s.main}>
       <h3>
         {showProject.map((proj) => (proj.statusShow === true ? proj.text : ""))}
+
+        {/* {showProject.find((el) => el.statusShow).text}
+        {console.log(showProject.find((el) => el.statusShow))} */}
       </h3>
       <ul className={s.themeArea}>
-        {}
+        {/* {console.log(showProject.find((el) => el.statusShow).theme.length > 0)} */}
+        {/* {showProject.find((el) => el.statusShow).theme.length > 0 ? (
+          themes.map((theme) => (
+            <ThemeItem key={theme.id} {...theme}></ThemeItem>
+          ))
+        ) : (
+          <div>empty themes</div>
+        )} */}
+
         {themes.length > 0 ? (
           themes.map((theme) => (
             <ThemeItem key={theme.id} {...theme}></ThemeItem>
