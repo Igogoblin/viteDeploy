@@ -47,7 +47,9 @@ const projectSlice = createSlice({
             statusShow: false,
           },
         ],
-    themes: JSON.parse(localStorage.getItem("projTheme")),
+    themes: localStorage.getItem("projTheme")
+      ? JSON.parse(localStorage.getItem("projTheme"))
+      : [],
     // themes: [],
     flag: 1,
   },
@@ -76,9 +78,6 @@ const projectSlice = createSlice({
       state.projects = state.projects.filter(
         (proj) => proj.id !== action.payload.id
       );
-      // state.projects.map((el) => {
-      //   el.statusShow = false;
-      // });
       state.themes = [];
       localStorage.setItem("projItem", JSON.stringify(state.projects));
       localStorage.setItem("projTheme", JSON.stringify(state.themes));
@@ -131,7 +130,6 @@ const projectSlice = createSlice({
         if (proj.id === state.flag) {
           proj.theme.length = 0;
           proj.theme.push(...state.themes);
-          // console.log(proj.theme);
         }
       });
       localStorage.setItem("projTheme", JSON.stringify(state.themes));
@@ -144,29 +142,14 @@ const projectSlice = createSlice({
 
       toggleTheme.completed = !toggleTheme.completed;
       state.projects.forEach((proj) => {
-        // console.log(proj.theme);
-        // console.log(...state.themes);
         if (proj.id === state.flag) {
           proj.theme.length = 0;
           proj.theme.push(...state.themes);
-          console.log(proj.theme);
-          console.log(...state.themes);
-          // console.log(...state.themes);
-          // localStorage.setItem("projTheme", JSON.stringify(...state.themes));
         }
       });
-      console.log("for our themes - ", state.themes);
-      console.log(state.projects);
+
       localStorage.setItem("projItem", JSON.stringify(state.projects));
-      console.log(JSON.parse(localStorage.getItem("projItem")));
       localStorage.setItem("projTheme", JSON.stringify(state.themes));
-      console.log(JSON.parse(localStorage.getItem("projTheme")));
-      // let ourTheme = JSON.parse(localStorage.getItem("projItem")).find(
-      //   (el) => el.statusShow
-      // );
-      // console.log(ourTheme.theme);
-      let ourTheme = state.projects.find((el) => el.statusShow);
-      console.log(ourTheme.theme);
     },
     removeTheme(state, action) {
       state.themes = state.themes.filter(
