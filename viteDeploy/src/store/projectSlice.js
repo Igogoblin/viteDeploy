@@ -113,10 +113,13 @@ const projectSlice = createSlice({
             }
           });
           proj.percent = ((100 / proj.theme.length) * rez).toFixed(2);
+          if (rez === 0) {
+            proj.percent = 0;
+          }
         }
         rez = 0;
       });
-
+      console.log("get percent from theme");
       localStorage.setItem("projItem", JSON.stringify(state.projects));
     },
     // ----------------------------------------------------------------------------------
@@ -161,6 +164,7 @@ const projectSlice = createSlice({
           proj.theme.push(...state.themes);
         }
       });
+
       localStorage.setItem("projTheme", JSON.stringify(state.themes));
       localStorage.setItem("projItem", JSON.stringify(state.projects));
     },
